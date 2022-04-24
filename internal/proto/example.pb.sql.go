@@ -11,7 +11,9 @@ import (
 
 var _ sql.Scanner
 var _ driver.Valuer
+var _ fmt.Stringer
 var _ = cast.ToString
+var _ = protojson.Marshal
 
 // Scan implements sql.Scanner
 func (msg *Foo) Scan(src interface{}) error {

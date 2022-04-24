@@ -82,7 +82,9 @@ import (
 
 var _ sql.Scanner
 var _ driver.Valuer
+var _ fmt.Stringer
 var _ = cast.ToString
+var _ = protojson.Marshal
 
 {{ range .File.AllMessages }}
 	{{- $fieldConflict := false}}
