@@ -1,0 +1,12 @@
+version: v1
+plugins:
+  - remote: buf.build/library/plugins/go:v1.27.1-1
+    out: .
+    opt: paths=source_relative
+  - name: go-sql
+    out: .
+    opt:
+      - paths=source_relative
+      - emit_unpopulated=true
+      - use_proto_names=true
+      - discard_unknown=true

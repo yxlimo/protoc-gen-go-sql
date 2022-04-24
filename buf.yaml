@@ -1,0 +1,5 @@
+version: v1
+name: buf.build/yxlimo/protoc-gen-go-sql
+lint:
+  use:
+    - DEFAULT
