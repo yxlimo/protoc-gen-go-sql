@@ -34,3 +34,10 @@ message NotGeneratedFoo {
 message NotGeneratedBar {
   string scan = 1;
 }
+
+message NotGeneratedOneof {
+  oneof value {
+    string field = 1;
+    int32 int_field = 2;
+  }
+}

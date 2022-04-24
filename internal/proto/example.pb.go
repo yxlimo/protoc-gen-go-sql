@@ -359,6 +359,86 @@ func (x *NotGeneratedBar) GetScan() string {
 	return ""
 }
 
+type NotGeneratedOneof struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Types that are assignable to Value:
+	//	*NotGeneratedOneof_Field
+	//	*NotGeneratedOneof_IntField
+	Value isNotGeneratedOneof_Value `protobuf_oneof:"value"`
+}
+
+func (x *NotGeneratedOneof) Reset() {
+	*x = NotGeneratedOneof{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_internal_proto_example_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *NotGeneratedOneof) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NotGeneratedOneof) ProtoMessage() {}
+
+func (x *NotGeneratedOneof) ProtoReflect() protoreflect.Message {
+	mi := &file_internal_proto_example_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NotGeneratedOneof.ProtoReflect.Descriptor instead.
+func (*NotGeneratedOneof) Descriptor() ([]byte, []int) {
+	return file_internal_proto_example_proto_rawDescGZIP(), []int{5}
+}
+
+func (m *NotGeneratedOneof) GetValue() isNotGeneratedOneof_Value {
+	if m != nil {
+		return m.Value
+	}
+	return nil
+}
+
+func (x *NotGeneratedOneof) GetField() string {
+	if x, ok := x.GetValue().(*NotGeneratedOneof_Field); ok {
+		return x.Field
+	}
+	return ""
+}
+
+func (x *NotGeneratedOneof) GetIntField() int32 {
+	if x, ok := x.GetValue().(*NotGeneratedOneof_IntField); ok {
+		return x.IntField
+	}
+	return 0
+}
+
+type isNotGeneratedOneof_Value interface {
+	isNotGeneratedOneof_Value()
+}
+
+type NotGeneratedOneof_Field struct {
+	Field string `protobuf:"bytes,1,opt,name=field,proto3,oneof"`
+}
+
+type NotGeneratedOneof_IntField struct {
+	IntField int32 `protobuf:"varint,2,opt,name=int_field,json=intField,proto3,oneof"`
+}
+
+func (*NotGeneratedOneof_Field) isNotGeneratedOneof_Value() {}
+
+func (*NotGeneratedOneof_IntField) isNotGeneratedOneof_Value() {}
+
 var File_internal_proto_example_proto protoreflect.FileDescriptor
 
 var file_internal_proto_example_proto_rawDesc = []byte{
@@ -396,10 +476,16 @@ var file_internal_proto_example_proto_rawDesc = []byte{
 	0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x25, 0x0a, 0x0f, 0x4e, 0x6f,
 	0x74, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65, 0x64, 0x42, 0x61, 0x72, 0x12, 0x12, 0x0a,
 	0x04, 0x73, 0x63, 0x61, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x73, 0x63, 0x61,
-	0x6e, 0x42, 0x34, 0x5a, 0x32, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
-	0x79, 0x78, 0x6c, 0x69, 0x6d, 0x6f, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x63, 0x2d, 0x67, 0x65,
-	0x6e, 0x2d, 0x67, 0x6f, 0x2d, 0x73, 0x71, 0x6c, 0x2f, 0x69, 0x6e, 0x74, 0x65, 0x72, 0x6e, 0x61,
-	0x6c, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6e, 0x22, 0x53, 0x0a, 0x11, 0x4e, 0x6f, 0x74, 0x47, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65,
+	0x64, 0x4f, 0x6e, 0x65, 0x6f, 0x66, 0x12, 0x16, 0x0a, 0x05, 0x66, 0x69, 0x65, 0x6c, 0x64, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x48, 0x00, 0x52, 0x05, 0x66, 0x69, 0x65, 0x6c, 0x64, 0x12, 0x1d,
+	0x0a, 0x09, 0x69, 0x6e, 0x74, 0x5f, 0x66, 0x69, 0x65, 0x6c, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x05, 0x48, 0x00, 0x52, 0x08, 0x69, 0x6e, 0x74, 0x46, 0x69, 0x65, 0x6c, 0x64, 0x42, 0x07, 0x0a,
+	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x42, 0x34, 0x5a, 0x32, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62,
+	0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x79, 0x78, 0x6c, 0x69, 0x6d, 0x6f, 0x2f, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x63, 0x2d, 0x67, 0x65, 0x6e, 0x2d, 0x67, 0x6f, 0x2d, 0x73, 0x71, 0x6c, 0x2f, 0x69, 0x6e,
+	0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -415,14 +501,15 @@ func file_internal_proto_example_proto_rawDescGZIP() []byte {
 }
 
 var file_internal_proto_example_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_internal_proto_example_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_internal_proto_example_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_internal_proto_example_proto_goTypes = []interface{}{
-	(BarEnum_Enum)(0),       // 0: proto.BarEnum.Enum
-	(*Foo)(nil),             // 1: proto.Foo
-	(*Bar)(nil),             // 2: proto.Bar
-	(*BarEnum)(nil),         // 3: proto.BarEnum
-	(*NotGeneratedFoo)(nil), // 4: proto.NotGeneratedFoo
-	(*NotGeneratedBar)(nil), // 5: proto.NotGeneratedBar
+	(BarEnum_Enum)(0),         // 0: proto.BarEnum.Enum
+	(*Foo)(nil),               // 1: proto.Foo
+	(*Bar)(nil),               // 2: proto.Bar
+	(*BarEnum)(nil),           // 3: proto.BarEnum
+	(*NotGeneratedFoo)(nil),   // 4: proto.NotGeneratedFoo
+	(*NotGeneratedBar)(nil),   // 5: proto.NotGeneratedBar
+	(*NotGeneratedOneof)(nil), // 6: proto.NotGeneratedOneof
 }
 var file_internal_proto_example_proto_depIdxs = []int32{
 	0, // 0: proto.Bar.enum_field:type_name -> proto.BarEnum.Enum
@@ -499,6 +586,22 @@ func file_internal_proto_example_proto_init() {
 				return nil
 			}
 		}
+		file_internal_proto_example_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*NotGeneratedOneof); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+	}
+	file_internal_proto_example_proto_msgTypes[5].OneofWrappers = []interface{}{
+		(*NotGeneratedOneof_Field)(nil),
+		(*NotGeneratedOneof_IntField)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -506,7 +609,7 @@ func file_internal_proto_example_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_internal_proto_example_proto_rawDesc,
 			NumEnums:      1,
-			NumMessages:   5,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

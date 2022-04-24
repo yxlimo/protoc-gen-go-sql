@@ -16,12 +16,10 @@ type Option struct {
 var _ pgs.Module = &Sql{}
 
 type Sql struct {
-	option     Option
-	base       *pgs.ModuleBase
-	ctx        pgsgo.Context
-	tpl        *template.Template
-	messageTpl *template.Template
-	enumTpl    *template.Template
+	option Option
+	base   *pgs.ModuleBase
+	ctx    pgsgo.Context
+	tpl    *template.Template
 }
 
 type FileWrapper struct {
@@ -89,6 +87,11 @@ var _ = protojson.Marshal
 {{ range .File.AllMessages }}
 	{{- $fieldConflict := false}}
 	{{- range .Fields}}
+		{{- if or (eq (name .) "Value") (eq (name .) "Scan") }}
+			{{- $fieldConflict = true }}{{break}}
+		{{- end }}
+	{{- end }}
+	{{- range .OneOfs }}
 		{{- if or (eq (name .) "Value") (eq (name .) "Scan") }}
 			{{- $fieldConflict = true }}{{break}}
 		{{- end }}
